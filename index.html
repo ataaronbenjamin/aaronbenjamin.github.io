@@ -1,37 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Jai Benjamin | Actor</title>
+
 <style>
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 60px;
+
+body{
+margin:0;
+font-family: Helvetica, Arial, sans-serif;
+color:white;
+background:black;
 }
-img {
-  width: 300px;
-  border-radius: 6px;
+
+.hero{
+height:100vh;
+background-image:url("headshot.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
-a {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 20px;
+
+.overlay{
+background:rgba(0,0,0,0.45);
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
 }
+
+.content{
+position:relative;
+z-index:2;
+}
+
+h1{
+font-size:60px;
+margin:0;
+letter-spacing:2px;
+}
+
+.subtitle{
+margin-top:10px;
+font-size:20px;
+color:#dddddd;
+}
+
+.button{
+margin-top:30px;
+padding:14px 26px;
+border:1px solid white;
+color:white;
+text-decoration:none;
+font-size:18px;
+}
+
+.button:hover{
+background:white;
+color:black;
+}
+
 </style>
+
 </head>
 
 <body>
 
+<div class="hero">
+
+<div class="overlay"></div>
+
+<div class="content">
+
 <h1>Jai Benjamin</h1>
-<p>Actor</p>
 
-<img src="headshot.jpg" alt="Headshot">
+<p class="subtitle">Actor | Toronto</p>
 
-<br>
-
-<a href="https://www.imdb.com/name/nm13183508/" target="_blank">
-View My IMDb
+<a class="button" href="https://www.imdb.com/name/nm13183508/" target="_blank">
+View IMDb
 </a>
+
+</div>
+
+</div>
 
 </body>
 </html>
