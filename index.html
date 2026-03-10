@@ -5,165 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jai Benjamin | Actor</title>
 
+  <!-- Clean, thin sans-serif similar to Hiro's site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --text:#fff;
-      --muted: rgba(255,255,255,0.78);
-      --muted2: rgba(255,255,255,0.65);
-      --border: rgba(255,255,255,0.22);
+      --text:#0c0c0c;
+      --muted: rgba(0,0,0,0.55);
+      --muted2: rgba(0,0,0,0.35);
     }
 
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       background:#000;
+      color:var(--text);
     }
 
+    /* Full-bleed hero image */
     .hero{
       min-height:100vh;
       background-image:url("headshot2.jpeg");
       background-size:cover;
       background-position:center;
-      display:flex;
-      align-items:flex-end;          /* move content to bottom */
-      justify-content:flex-start;
-      text-align:center;
       position:relative;
-      padding: 48px 20px 70px;       /* extra bottom padding */
+      display:flex;
+      align-items:flex-start;
+      justify-content:flex-start;
     }
 
+    /* Subtle wash like the reference */
     .overlay{
       position:absolute;
       inset:0;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(0,0,0,0.08), rgba(0,0,0,0.38) 60%, rgba(0,0,0,0.55) 100%),
-        linear-gradient(to bottom, rgba(0,0,0,0.20), rgba(0,0,0,0.45));
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.08), rgba(255,255,255,0) 55%),
+                  linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.0));
+      pointer-events:none;
     }
 
-    .content{
+    /* Copy block in the top-left */
+    .copy{
       position:relative;
       z-index:2;
-      max-width: 900px;
-      padding: 32px 32px 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      background: rgba(0,0,0,0.10);
-      backdrop-filter: blur(2px);
+      padding: clamp(22px, 4vw, 60px);
+      max-width: 520px;
     }
 
-    h1{
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 600;
-      font-size: clamp(40px, 5.2vw, 76px);
-      margin: 0;
-      letter-spacing: 0.2px;
-      line-height: 1.03;
-    }
-
-    .subtitle{
-      margin: 12px 0 0;
-      font-size: clamp(15px, 1.8vw, 18px);
-      color: var(--muted);
-      letter-spacing: 0.4px;
-      font-weight: 400;
-    }
-
-    .agency{
-      margin: 10px 0 0;
-      font-size: 13px;
-      color: var(--muted2);
-    }
-
-    .agency a{
+    .name{
+      margin:0;
+      font-weight:200;
+      letter-spacing: 0.18em;
+      text-transform:uppercase;
+      line-height: 0.95;
+      font-size: clamp(44px, 7vw, 84px);
       color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.30);
-      padding-bottom: 2px;
     }
 
-    .agency a:hover{
-      border-bottom-color: rgba(255,255,255,0.85);
+    .role{
+      margin: 14px 0 0;
+      font-weight:300;
+      letter-spacing: 0.28em;
+      text-transform:uppercase;
+      font-size: clamp(12px, 2vw, 14px);
+      color: var(--muted);
     }
 
-    .actions{
+    .links{
+      margin-top: 18px;
       display:flex;
-      gap: 12px;
-      justify-content:flex-start;
+      gap: 14px;
       flex-wrap:wrap;
-      margin-top: 22px;
-    }
-
-    .button{
-      padding: 11px 16px;
-      border-radius: 12px;
-      text-decoration:none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
-      display:inline-flex;
       align-items:center;
-      justify-content:flex-start;
-      min-width: 140px;
     }
 
-    .button.primary{
-      background: #fff;
-      color:#000;
-      border: 1px solid rgba(255,255,255,0.95);
+    .link{
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform:uppercase;
+      text-decoration:none;
+      color: rgba(0,0,0,0.70);
+      border-bottom: 1px solid rgba(0,0,0,0.22);
+      padding-bottom: 3px;
     }
 
-    .button.secondary{
-      background: rgba(0,0,0,0.12);
-      color:#fff;
-      border: 1px solid var(--border);
+    .link:hover{
+      color: rgba(0,0,0,0.92);
+      border-bottom-color: rgba(0,0,0,0.55);
     }
 
-    .button:hover{
-      transform: translateY(-1px);
+    /* Optional “stamp” placement like the reference (remove if you don’t want it) */
+    .stamp{
+      position:absolute;
+      right: clamp(18px, 4vw, 52px);
+      bottom: clamp(18px, 4vw, 52px);
+      width: clamp(54px, 7vw, 84px);
+      height: auto;
+      opacity: 0.9;
+      filter: saturate(1.1);
     }
 
-    .button.primary:hover{
-      background: rgba(255,255,255,0.92);
-    }
-
-    .button.secondary:hover{
-      border-color: rgba(255,255,255,0.55);
-      background: rgba(0,0,0,0.18);
-    }
-
-    @media (max-width: 520px){
-      .content{ padding: 26px 18px 22px; }
-      .button{ width: 100%; max-width: 320px; }
+    /* Mobile: push copy to bottom-left like Hiro mobile example */
+    @media (max-width: 700px){
+      .hero{
+        align-items:flex-end;
+      }
+      .copy{
+        padding: 26px 22px 34px;
+        max-width: none;
+      }
+      .name{
+        font-size: clamp(44px, 10vw, 76px);
+      }
+      .role{
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="hero">
+  <section class="hero">
     <div class="overlay"></div>
 
-    <div class="content">
-      <h1>Jai Benjamin</h1>
-      <p class="subtitle">Actor • Toronto</p>
+    <div class="copy">
+      <h1 class="name">Jai<br>Benjamin</h1>
+      <div class="role">Actor • Toronto</div>
 
-      <p class="agency">
-        Represented by <a href="https://www.thecharacters.com/toronto" target="_blank" rel="noopener">The Characters</a>
-      </p>
-
-      <div class="actions">
-        <a class="button primary" href="https://www.imdb.com/name/nm13183508/" target="_blank" rel="noopener">
-          View IMDb
-        </a>
-        <a class="button secondary" href="https://www.thecharacters.com/toronto" target="_blank" rel="noopener">
-          Agency
-        </a>
+      <div class="links">
+        <a class="link" href="https://www.imdb.com/name/nm13183508/" target="_blank" rel="noopener">IMDb</a>
+        <a class="link" href="https://www.thecharacters.com/toronto" target="_blank" rel="noopener">The Characters</a>
       </div>
     </div>
-  </div>
+
+    <!-- If you have a logo/stamp image, put it in your repo and set src below.
+         Otherwise delete this <img> entirely. -->
+    <!-- <img class="stamp" src="stamp.png" alt="" /> -->
+  </section>
 </body>
 </html>
